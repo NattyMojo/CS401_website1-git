@@ -3,6 +3,8 @@
     require_once 'database.php';
 
     $_SESSION['err'] = array();
+    $_SESSION['user_err'] = array();
+    $_SESSION['pass_err'] = array();
     $_SESSION['username'] = array();
     $loginRedirect = "Location: ../login.php";
 
@@ -12,28 +14,22 @@
     $_SESSION['username'] = $_POST['username'];
     $ret = preg_match($regex, $_POST['username']);
     if($ret == 1) {
-        $_SESSION['err'] = "Invalid Username";
+        $_SESSION['user_err'] = "Invalid Username";
         $_SESSION['authenticated'] = false;
-        print_r($_SESSION['err']);
-        print_r($_POST['username']);
         header($loginRedirect);
-        exit();
     }
     $ret = preg_match($passwordRegex, $_POST['password']);
     if($ret == 1) {
-        $_SESSION['err'] = "Invalid Password";
+        $_SESSION['pass_err'] = "Invalid Password";
         $_SESSION['authenticated'] = false;
-        print_r($_SESSION['err']);
-        print_r($_POST['password']);
         header($loginRedirect);
-        exit();
     }
 
+    $passedPass = hash('sha256', $_POST['password'] . "dfsa!#f4323@fkjg");
+
     $db = new Database();
-    if($db->authorize($_POST['username'], $_POST['password'])) {
+    if($db->authorize($_POST['username'], $passedPass)) {
         $_SESSION['authenticated'] = true;
-        $_SESSION['err'] = array();
-        $_SESSION['username'] = array();
         header("Location: ../index_admin.php");
         exit();
     }

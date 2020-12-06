@@ -1,0 +1,35 @@
+@import "stylesheet.css";
+/* Login Page */
+#logindiv {
+    text-align: center;
+    margin-top: 15%;
+  }
+  .formdiv {
+    font-family: 'arapeyregular';
+    font-size: 20px;
+    margin: 20px 35%;
+    width: 30%;
+  }
+  
+  #loginform {
+    margin-top: 0;
+  }
+  
+  #pic_login {
+    margin-bottom: 20px;
+  }
+  
+  #login_error {
+    /* background-color: #bfbfbf; */
+    color: red;
+    width:25%;
+    margin-left: 37.5%;
+    /* border-radius: 6px; */
+  }
+  .inline_login_err {
+    /* background-color: #bfbfbf; */
+    color: red;
+    font-size: 18px;
+    position: absolute;
+    /* border-radius: 6px; */
+  }

@@ -1,0 +1,132 @@
+@import "stylesheet.css";
+  
+    /* Portfolio Section */
+  
+  .portfolio {
+      padding-top: 0;
+      position: relative;
+  }
+  
+  #porttext {
+    font-family: 'satisfyregular';
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: default;
+  }
+  
+  .portfolio form {
+    margin: 0;
+  }
+  .portfolio input {
+    margin: 0;
+  }
+  .row {
+    width: 100%;
+    margin: 0 20%;
+  }
+  #portfolio_parent {
+    width: 100%;
+    height: 80%;
+    position:relative;
+  }                
+                      
+  .arrow {
+    float: left;
+    display: flex;
+    width: 12.5%;
+    height: 100%
+  }
+  .arrow img {
+    position: absolute;
+    width: 5%;
+    height: 15%;
+    z-index: -1;
+    margin-top: 42.5%;
+    
+  }
+  .arrow a {
+    position: absolute;
+    width: 5%;
+    height: 15%;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 30px;
+  }
+
+  #left {
+    margin: 12.5% 18%;
+  }
+  #right {
+    margin: 12.5% -5%;
+  }
+
+  .slidediv {
+    float:left;
+    width: 70%;
+    height: 100%;
+    display: none;
+  }
+  .pic {
+    width: 22.5%;
+    cursor: pointer;
+  }
+  .pic:hover {opacity: 70%;}
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* Modal Content (Image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* Add Animation - Zoom in the Modal */
+  .modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }

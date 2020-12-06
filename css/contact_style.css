@@ -1,0 +1,49 @@
+@import "stylesheet.css";
+/* Contact Page */
+#contact_form {
+    margin: 5%;
+  }
+  #contact_form div {
+    margin: 25px;
+    font-family: 'arapeyregular';
+    cursor: default;
+    font-size: larger;
+  }
+  #no_email {
+    width:35%;
+    padding: 5px;
+    border-radius:6px;
+    border:1px solid black;
+    background: #bbbbbb;
+    color: red;
+  }
+  #yes_email {
+    width:35%;
+    padding: 5px;
+    color: green;
+  }
+  #contact_form div span {
+    color: red;
+  }
+  input[type="submit"] {
+    margin-top: 20px;
+  }
+  input[name="name"] {
+    width: 20%;
+    height: 30px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  input[name="email"] {
+    width: 20%;
+    height: 30px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  textarea[name="message"] {
+    width: 90%;
+    height: 150px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  /* End Contact Page */

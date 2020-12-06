@@ -7,8 +7,10 @@ if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']) {
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/login_style.css">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <script src="JS/jquery-3.5.1.js"></script>
+    <script src="JS/loginfade.js"></script>
     <title>Clay Captures Photography - Login</title>
 </head>
 
@@ -30,8 +32,19 @@ if(isset($_SESSION['authenticated']) && $_SESSION['authenticated']) {
                 }
             ?>
             />
+            <?php
+                if(!empty($_SESSION['user_err'])) {
+                    echo "<span class=\"inline_login_err\">&nbsp;&nbsp;*" . $_SESSION['user_err'] . "</span>";
+                }
+            ?>
             </div>
-            <div class="formdiv">Password: <input type="password" name="password" required="required"/></div>
+            <div class="formdiv">Password: <input type="password" name="password" required="required"/>
+            <?php
+                if(!empty($_SESSION['pass_err'])) {
+                    echo "<span class=\"inline_login_err\">&nbsp;&nbsp;*" . $_SESSION['pass_err'] . "</span>";
+                }
+            ?>
+            </div>
             <input type="submit" value="Login">
         </form>
 

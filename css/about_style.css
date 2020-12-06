@@ -1,0 +1,35 @@
+@import "stylesheet.css";
+.about {
+    padding-top: 75px;
+  }
+  
+  #aboutpic {
+    padding-top: 35px;
+    margin-left: 5%;
+    width: 250px;
+    height: 293px;
+  }
+  
+  #p1 {
+    font-family: 'arapeyitalic';
+    text-align: center;
+    font-size: 30px;
+    cursor: default;
+  }
+  
+  p.msg {
+    font-family: 'radleyitalic';
+    padding-left: 5%;
+    padding-right: 20%;
+    font-size: 20px;
+    cursor: default;
+  }
+  
+  p.sig {
+    font-family: 'radleyitalic';
+    padding-left: 7%;
+    font-weight: bolder;
+    font-size: 20px;
+    cursor: default;
+  }
+  /* End About Me */

@@ -54,6 +54,24 @@
       $q->execute();
       return $q->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getThumbnails() {
+      $conn = $this->getConnection();
+      $query = "select path from images where path like \"%_t%\"";
+      $q = $conn->prepare($query);
+      $q->execute();
+      return $q->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getImageFromThumb($thumb_filename) {
+      $filename = str_replace("_t", "", $thumb_filename); 
+      $conn = $this->getConnection();
+      $query = "select path from images where path = :path";
+      $q = $conn->prepare($query);
+      $q->bindParam(":path", $filename);
+      $q->execute();
+      return $q->fetchAll(PDO::FETCH_ASSOC);
+    }
   
   }
 ?>

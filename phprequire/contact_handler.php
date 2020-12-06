@@ -8,11 +8,11 @@
     $_SESSION['message'] = array();
     $_SESSION['success'] = false;
     $redirect = "Location: ../contact.php";
-    require_once '../vendor/autoload.php';
-    
+    require '../vendor/autoload.php';
+
     $regex = "/[^a-zA-Z '-]+/";
     $email_regex = "/.{1,}@.+\.[a-zA-Z]{3}/";
-    
+
     $_SESSION['name'] = $_POST['name'];
     $_SESSION['email'] = $_POST['email'];
     $_SESSION['message'] = $_POST['message'];
@@ -30,11 +30,11 @@
         header($redirect);
         exit();
     }
-    $email = new \SendGrid\Mail\Mail(); 
-    $email->setFrom("zachary.luciano@gmail.com", "Zach Luciano");
+    $email = new \SendGrid\Mail\Mail();
+    $email->setFrom("zachary.luciano@gmail.com");
+    $email->setReplyTo($_POST['email']);
     $email->setSubject("Photography Inquiry - " . $_POST['name']);
-    $email->addTo("zachary.luciano@gmail.com", "Zach Luciano");
-    $email->addContent("text/plain", "Reply To: " . $_POST['email'] . "\n\n");
+    $email->addTo("zachary.luciano@gmail.com");
     $email->addContent("text/plain", $_POST['message']);
     $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
     try {
@@ -47,6 +47,7 @@
         exit();
     } catch (Exception $e) {
         $_SESSION['no_email'] = "Could not send request, please contact the photographer at <a href = \"mailto: zachary.luciano@gmail.com\">zachary.luciano@gmail.com</a>";
+        $_SESSION['success'] = false;
         header($redirect);
         exit();
     }
